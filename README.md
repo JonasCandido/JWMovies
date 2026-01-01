@@ -1,6 +1,17 @@
 # JWMovies
 A website that simulates movie sites, like Netflix, Amazon Prime
 
+## Environment Variables
+The project uses a .env file to store your TMDB API key.
+There is a .env.example file in the repository to guide you
+```
+cd movie-website
+cp .env.example .env
+```
+Open .env and add your TMDB API key:
+```
+VITE_API_KEY=your_tmdb_api_key_here
+```
 ## How to run the project
 
 ```
