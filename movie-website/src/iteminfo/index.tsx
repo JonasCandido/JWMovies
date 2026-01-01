@@ -14,7 +14,7 @@ interface ItemInfoAction {
 }
 
 const BASE_QUERY = "https://api.themoviedb.org/3/movie/";
-const api_key = "b6fc758812b079a8170bcb081bb7da04";
+const api_key = import.meta.env.VITE_API_KEY;
 
 const detailsFetchInit = "DETAILS_FETCH_INIT";
 const detailsFetchSuccess = "DETAILS_FETCH_SUCCESS";
