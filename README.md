@@ -10,7 +10,7 @@ cp .env.example .env
 ```
 Open .env and add your TMDB API key:
 ```
-VITE_API_KEY=your_tmdb_api_key_here
+VITE_API_KEY=your_api_key_here
 ```
 ## How to run the project
 
