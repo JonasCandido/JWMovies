@@ -1,17 +1,7 @@
 import axios from "axios";
 import { useReducer, useEffect } from "react";
 import { useParams } from "react-router";
-
-interface ItemInfoState {
-  data: any;
-  isLoading: boolean;
-  isError: boolean;
-}
-
-interface ItemInfoAction {
-  type: string;
-  payload?: any;
-}
+import { ItemInfoAction, ItemInfoState } from "../../types/ItemTypes";
 
 const BASE_QUERY = "https://api.themoviedb.org/3/movie/";
 const api_key = import.meta.env.VITE_API_KEY;

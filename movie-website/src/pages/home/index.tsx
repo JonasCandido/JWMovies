@@ -1,4 +1,4 @@
-import { ItensListRow } from "../itenslistrow";
+import { ItensListRow } from "../../components/itenslistrow";
 
 const Home = () => { 
   return (

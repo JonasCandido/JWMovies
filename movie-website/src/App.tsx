@@ -1,8 +1,8 @@
 import { Routes, Route,} from 'react-router';
 
-import { Home } from "./home";
-import { ItemInfo } from "./iteminfo";
-import { Header } from "./header";
+import { Home } from "./pages/home";
+import { ItemInfo } from "./pages/iteminfo";
+import { Header } from "./components/header";
 
 const App = () => {
   return (

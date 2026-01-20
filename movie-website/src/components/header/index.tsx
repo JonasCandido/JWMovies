@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import { NavigationOptionsProps } from "../../types/NavTypes";
 
 const Header = () => {
   return (
@@ -9,9 +10,6 @@ const Header = () => {
   );
 };
 
-interface NavigationOptionsProps {
-  options: string[];
-};
 
 const NavigationOptions = ({options}: NavigationOptionsProps) => {
   return(

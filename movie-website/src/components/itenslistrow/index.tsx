@@ -6,31 +6,13 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
+import type { Movie, MoviesAction, MoviesState } from "../../types/MovieTypes";
 
 const moviesFetchInit = 'MOVIES_FETCH_INIT';
 const moviesFetchSuccess = 'MOVIES_FETCH_SUCCESS';
 const moviesFetchFailure = 'MOVIES_FETCH_FAILURE';
 const api_key = import.meta.env.VITE_API_KEY;
 const url = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&with_genres=";
-
-interface Movie {
-  id: number;
-  title: string;
-  poster_path: string;
-  overview: string;
-  release_date: string;
-};
-
-interface MoviesState {
-  data: any[];
-  isLoading: boolean;
-  isError: boolean;
-};
-
-interface MoviesAction {
-  type: string;
-  payload?: any;
-};
 
 interface ItensListRowProps {
   genre_id: number;
