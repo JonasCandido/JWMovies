@@ -3,7 +3,7 @@ import { useReducer, useEffect } from "react";
 import { useParams } from "react-router";
 import { ItemInfoAction, ItemInfoState } from "../../types/ItemTypes";
 
-const BASE_QUERY = "https://api.themoviedb.org/3/movie/";
+const BASE_QUERY = import.meta.env.VITE_BASE_QUERY;
 const api_key = import.meta.env.VITE_API_KEY;
 
 const detailsFetchInit = "DETAILS_FETCH_INIT";

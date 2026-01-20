@@ -12,7 +12,7 @@ const moviesFetchInit = 'MOVIES_FETCH_INIT';
 const moviesFetchSuccess = 'MOVIES_FETCH_SUCCESS';
 const moviesFetchFailure = 'MOVIES_FETCH_FAILURE';
 const api_key = import.meta.env.VITE_API_KEY;
-const url = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&with_genres=";
+const url = import.meta.env.VITE_LIST_URL;
 
 interface ItensListRowProps {
   genre_id: number;
