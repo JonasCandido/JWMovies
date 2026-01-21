@@ -20,9 +20,19 @@ npm install
 npm run dev
 ```
 ## How to run tests
+Unit and Integration tests:
 
 ```
 npm run test
+```
+
+e2e tests:
+```
+npm run dev
+```
+- at another terminal window:
+```
+npx crypress run
 ```
 
 ## How the website works
