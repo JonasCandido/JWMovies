@@ -1,15 +1,11 @@
 /// <reference types="cypress" />
 
-beforeEach(() => {
-  cy.intercept("GET", "**/discover/movie**", { fixture: "cypress/fixtures/movies.json" }).as("getMovies");
-  cy.intercept("GET", "**/movie/*", { fixture: "cypress/fixtures/movie-details.json" }).as("getDetails");
-  cy.intercept("GET", "**/credits**", { fixture: "cypress/fixtures/credits.json" }).as("getCredits");
-  cy.intercept("GET", "**/videos**", { fixture: "cypress/fixtures/videos.json" }).as("getVideos");
-});
-
-
 describe("Navigation to item page", () => {
   it("opens movie details page with mocked data", () => {
+    cy.intercept("GET", "**/discover/movie**", { fixture: "movies.json" }).as("getMovies");
+    cy.intercept("GET", "**/movie/*", { fixture: "movie-details.json" }).as("getDetails");
+    cy.intercept("GET", "**/credits**", { fixture: "credits.json" }).as("getCredits");
+    cy.intercept("GET", "**/videos**", { fixture: "videos.json" }).as("getVideos");
 
     cy.visit("/");
     
