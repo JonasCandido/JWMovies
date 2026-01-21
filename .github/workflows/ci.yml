@@ -24,6 +24,9 @@ jobs:
           cache: "npm"
           cache-dependency-path: movie-website/package-lock.json
 
+      - name: Rodar testes
+        run: npm run test
+
       - name: Instalar dependências
         run: npm install
 
