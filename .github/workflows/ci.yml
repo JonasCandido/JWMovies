@@ -37,5 +37,10 @@ jobs:
       - name: Build Vite
         run: npm run build
 
-      - name: Run Cypress E2E
-        run: npm run test:e2e:ci
+      - name: Rodar Cypress E2E
+        env:
+          VITE_BASE_QUERY: ${{ secrets.VITE_BASE_QUERY }}
+          VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
+          VITE_LIST_URL: ${{ secrets.VITE_LIST_URL }}
+
+        run: npx start-server-and-test "vite preview --port 4173" http://localhost:4173 cy:run
