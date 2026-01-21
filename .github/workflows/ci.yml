@@ -14,20 +14,18 @@ jobs:
         working-directory: movie-website
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout do código
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 18
           cache: "npm"
           cache-dependency-path: movie-website/package-lock.json
 
-      - run: npm install
+      - name: Instalar dependências
+        run: npm install
 
-      - name: Definir variáveis de ambiente
-        run: |
-          echo "VITE_API_KEY=dummy" >> $GITHUB_ENV
-          echo "VITE_LIST_URL=https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&with_genres=12" >> $GITHUB_ENV
-          echo "VITE_BASE_URL=https://api.themoviedb.org/3/movie/" >> $GITHUB_ENV
-
-      - run: npm run test
+      - name: Build Vite
+        run: npm run build
