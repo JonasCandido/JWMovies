@@ -20,9 +20,15 @@ npm install
 npm run dev
 ```
 ## How to run tests
+Unit and Integration tests:
 
 ```
 npm run test
+```
+
+e2e tests:
+```
+npx cypress run
 ```
 
 ## How the website works
