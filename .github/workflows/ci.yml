@@ -43,4 +43,4 @@ jobs:
           VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
           VITE_LIST_URL: ${{ secrets.VITE_LIST_URL }}
           CYPRESS_BASE_URL: http://localhost:4173
-        run: npx start-server-and-test "vite preview --port 4173" $CYPRESS_BASE_URL npm run cy:run
+        run: npx start-server-and-test "vite preview --port 4173" "http://localhost:4173" "npm run cy:run"
