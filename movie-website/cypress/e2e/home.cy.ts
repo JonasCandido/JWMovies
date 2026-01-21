@@ -2,6 +2,11 @@
 
 describe("Navigation to item page", () => {
   it("opens movie details page with mocked data", () => {
+    cy.intercept("GET", "**/discover/movie**", { fixture: "movies.json" }).as("getMovies");
+    cy.intercept("GET", "**/movie/*", { fixture: "movie-details.json" }).as("getDetails");
+    cy.intercept("GET", "**/credits**", { fixture: "credits.json" }).as("getCredits");
+    cy.intercept("GET", "**/videos**", { fixture: "videos.json" }).as("getVideos");
+
     cy.visit("/");
 
     cy.wait("@getMovies");
