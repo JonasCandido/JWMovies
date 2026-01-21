@@ -8,7 +8,12 @@
     "build": "tsc -b && vite build",
     "test": "vitest",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+
+    "test:e2e:ci": "start-server-and-test preview http://localhost:4173 cy:run"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",

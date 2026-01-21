@@ -1,0 +1,11 @@
+{
+  "id": 1,
+  "title": "Integration Movie",
+  "overview": "Integration overview",
+  "runtime": 140,
+  "poster_path": "/test.jpg",
+  "genres": [
+    { "id": 12, "name": "Adventure" },
+    { "id": 28, "name": "Action" }
+  ]
+}

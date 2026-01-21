@@ -1,0 +1,15 @@
+{
+  "id": 1,
+  "cast": [
+    {
+      "id": 101,
+      "name": "Actor 1",
+      "character": "Role 1"
+    },
+    {
+      "id": 102,
+      "name": "Actor 2",
+      "character": "Role 2"
+    }
+  ]
+}

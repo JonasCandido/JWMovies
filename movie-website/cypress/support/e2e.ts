@@ -15,3 +15,21 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+
+beforeEach(() => {
+  cy.intercept("GET", "**/discover/movie**", {
+    fixture: "movies.json",
+  });
+
+  cy.intercept("GET", "**/movie/*", {
+    fixture: "movie-details.json",
+  });
+
+  cy.intercept("GET", "**/credits**", {
+    fixture: "credits.json",
+  });
+
+  cy.intercept("GET", "**/videos**", {
+    fixture: "videos.json",
+  });
+});
