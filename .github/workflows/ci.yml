@@ -28,5 +28,6 @@ jobs:
         run: |
           echo "VITE_API_KEY=dummy" >> $GITHUB_ENV
           echo "VITE_LIST_URL=https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&with_genres=" >> $GITHUB_ENV
+          echo "VITE_BASE_URL=https://api.themoviedb.org/3/movie/" >> $GITHUB_ENV
 
       - run: npm run test
