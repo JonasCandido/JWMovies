@@ -1,22 +1,34 @@
 /// <reference types="cypress" />
 
-describe("Home page", () => {
-  it("renders movie rows with mocked movies", () => {
+describe("Navigation to item page", () => {
+  it("opens movie details page with mocked data", () => {
     cy.visit("/");
 
-    cy.contains("JWMovies").should("be.visible");
+    cy.wait("@getMovies");
 
-    cy.contains("Experience Incredible Journeys").should("be.visible");
-    cy.contains("Feel the Beat of Your Heart").should("be.visible");
-    cy.contains("Worlds in Other Dimension").should("be.visible");
+    cy.get('a').eq(2).click();
 
-    cy.contains("Integration Movie").should("be.visible");
+    cy.wait("@getDetails");
+    cy.wait("@getCredits");
+    cy.wait("@getVideos");
 
-    cy.get('img[alt="Integration Movie"]')
+    cy.get("h2").should("contain.text", "Integration Movie");
+
+    cy.contains("Overview").should("exist");
+    cy.contains("Integration overview").should("be.visible");
+
+    cy.contains("Runtime").should("exist");
+    cy.contains("140 minutes").should("be.visible");
+
+    cy.contains("Cast").should("exist");
+    cy.contains("Actor 1").should("be.visible");
+    cy.contains("Role 1").should("be.visible");
+    cy.contains("Actor 2").should("be.visible");
+    cy.contains("Role 2").should("be.visible");
+
+    cy.get('iframe[title="Integration Movie"]')
       .should("be.visible")
       .and("have.attr", "src")
-      .and("include", "/test.jpg");
-
-    cy.get('a[href="/1"]').should("exist");
+      .and("include", "video123");
   });
 });
