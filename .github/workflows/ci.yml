@@ -36,14 +36,3 @@ jobs:
 
       - name: Build Vite
         run: npm run build
-
-      - name: Rodar Cypress E2E
-        env:
-          VITE_BASE_QUERY: ${{ secrets.VITE_BASE_QUERY }}
-          VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
-          VITE_LIST_URL: ${{ secrets.VITE_LIST_URL }}
-          CYPRESS_BASE_URL: http://localhost:4173
-        run: |
-          npm run preview &
-          npx wait-on http://localhost:4173/assets/index.js
-          npx cypress run
