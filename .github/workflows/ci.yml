@@ -36,3 +36,6 @@ jobs:
 
       - name: Build Vite
         run: npm run build
+
+      - name: Run Cypress E2E
+        run: npm run test:e2e:ci
