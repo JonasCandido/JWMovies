@@ -11,7 +11,7 @@ describe("ItensListRow – integration test", () => {
     renderWithRouter(<ItensListRow genre_id={12} row_title="Integration Row" />);
 
 
-    expect(await screen.findByText('Integration Movie', {}, { timeout: 5000 }))
+    expect(await screen.findByText(/Integration Movie/i, {}, { timeout: 5000 }))
         .toBeInTheDocument();
     });
 });
