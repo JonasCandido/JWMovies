@@ -1,7 +1,11 @@
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter, Routes, Route } from "react-router";
-import { vi, it, expect } from "vitest";
+import { vi, it, expect, beforeAll, afterAll } from "vitest";
 import { ItemInfo } from "./index";
+import { server } from '../../../tests/msw/server';
+
+beforeAll(() => server.close());
+afterAll(() => server.listen({ onUnhandledRequest: 'error' }));
 
 vi.mock("axios", () => ({
   default: {

@@ -1,9 +1,13 @@
-import { describe, it, expect, vi, beforeEach } from "vitest";
+import { describe, it, expect, vi, beforeEach, beforeAll, afterAll } from "vitest";
 import { render, screen } from "@testing-library/react";
+import { server } from '../../../tests/msw/server';
 import { MemoryRouter } from "react-router";
 import axios from "axios";
 
 import { ItensListRow } from "./index";
+
+beforeAll(() => server.close());
+afterAll(() => server.listen({ onUnhandledRequest: 'error' }));
 
 vi.mock("axios", () => ({
   default: {
