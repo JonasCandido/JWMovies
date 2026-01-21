@@ -1,11 +1,18 @@
+// src/mocks/server.ts
 import { setupServer } from 'msw/node';
 import { http, HttpResponse } from 'msw';
 
-const LIST_URL = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&with_genres="
-
 export const server = setupServer(
-  // handler for ItensListRow
-  http.get(`${LIST_URL}:genreId`, ({ params }) => {
+  // Handler for ItensListRow
+  http.get(({ request }) => {
+    const url = new URL(request.url)
+
+    const matches =
+      url.pathname === "/3/discover/movie" &&
+      url.searchParams.has("with_genres")
+
+    return { matches, params: {} }
+  }, () => {
     return HttpResponse.json({
       results: [
         {
@@ -16,29 +23,41 @@ export const server = setupServer(
           release_date: "2024-01-01",
         },
       ],
-    });
+    })
   }),
 
-  // handler for ItemInfo
-  http.get("*", ({ request }) => {
-    const url = request.url.toString();
-    if (url.includes("/videos")) {
-      return HttpResponse.json({ results: [{ key: "video123" }] });
+  // Handler for ItemInfo
+  http.get(({ request }) => {
+    const url = new URL(request.url)
+
+    const matches =
+      url.pathname.includes("/videos") ||
+      url.pathname.includes("/credits") ||
+      url.pathname.includes("/movie/")
+
+    return { matches, params: {} }
+  }, ({ request }) => {
+    const url = new URL(request.url)
+
+    if (url.pathname.includes("/videos")) {
+      return HttpResponse.json({ results: [{ key: "video123" }] })
     }
-    if (url.includes("/credits")) {
+
+    if (url.pathname.includes("/credits")) {
       return HttpResponse.json({
         cast: [
           { id: 1, name: "Actor 1", character: "Role 1" },
           { id: 2, name: "Actor 2", character: "Role 2" },
         ],
-      });
+      })
     }
+
     return HttpResponse.json({
       title: "Integration Movie",
       overview: "Integration overview",
       runtime: 140,
       poster_path: "/test.jpg",
       genres: [{ name: "Action" }],
-    });
+    })
   })
 );
