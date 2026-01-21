@@ -4,14 +4,7 @@ import { setupServer } from 'msw/node';
 const TMDB_BASE_URL = 'https://api.themoviedb.org/3';
 
 const handlers = [
-  http.get(`${TMDB_BASE_URL}/discover/movie`, ({ request }) => {
-    const url = new URL(request.url);
-    const hasGenre = url.searchParams.has('with_genres');
-
-    if (!hasGenre) {
-      return new HttpResponse(null, { status: 400 });
-    }
-
+  http.get(`${TMDB_BASE_URL}/discover/movie`, () => {
     return HttpResponse.json({
       results: [
         {
