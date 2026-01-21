@@ -6,7 +6,7 @@ import { ItensListRow } from "./index";
 const renderWithRouter = (ui: React.ReactElement) =>
   render(<MemoryRouter>{ui}</MemoryRouter>);
 
-  describe("ItensListRow – integration test", () => {
+describe("ItensListRow – integration test", () => {
     it("renders movies from real HTTP flow", async () => {
         renderWithRouter(
             <ItensListRow genre_id={12} row_title="Integration Row" />
