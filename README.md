@@ -28,7 +28,11 @@ npm run test
 
 e2e tests:
 ```
-npx cypress run
+npm run dev
+```
+- at another terminal window:
+```
+npx crypress run
 ```
 
 ## How the website works
