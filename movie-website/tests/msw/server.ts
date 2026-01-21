@@ -1,9 +1,11 @@
 import { setupServer } from 'msw/node';
 import { http, HttpResponse } from 'msw';
 
+const LIST_URL = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&with_genres="
+
 export const server = setupServer(
   // handler for ItensListRow
-  http.get(`${import.meta.env.VITE_LIST_URL}:genreId`, ({ params }) => {
+  http.get(`${LIST_URL}:genreId`, ({ params }) => {
     return HttpResponse.json({
       results: [
         {
