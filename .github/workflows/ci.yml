@@ -28,6 +28,10 @@ jobs:
         run: npm install
       
       - name: Rodar testes
+        env:
+          VITE_BASE_QUERY: ${{ secrets.VITE_BASE_QUERY }}
+          VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
+          VITE_LIST_URL: ${{ secrets.VITE_LIST_URL }}
         run: npm run test
 
       - name: Build Vite
