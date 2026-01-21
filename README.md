@@ -19,6 +19,11 @@ cd movie-website
 npm install
 npm run dev
 ```
+## How to run tests
+
+```
+npm run test
+```
 
 ## How the website works
 You can view a list of movie genres and click on each one of the movies to see its details.
