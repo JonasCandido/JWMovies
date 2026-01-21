@@ -25,8 +25,9 @@ jobs:
       - run: npm install
 
       - name: Definir variáveis de ambiente
+        working-directory: movie-website
         run: |
-          echo "VITE_API_KEY=dummy" >> $GITHUB_ENV
-          echo "VITE_LIST_URL=https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&with_genres=" >> $GITHUB_ENV
+          echo "VITE_API_KEY=dummy"
+          echo "VITE_LIST_URL=https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&with_genres="
 
       - run: npm run test

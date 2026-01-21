@@ -8,7 +8,6 @@ const renderWithRouter = (ui: React.ReactElement) =>
 
 describe("ItensListRow – integration test", () => {
    it('renders movies from MSW HTTP', async () => {
-    console.log("DEBUG - VITE_LIST_URL:", import.meta.env.VITE_LIST_URL);
     renderWithRouter(<ItensListRow genre_id={12} row_title="Integration Row" />);
 
 
